@@ -1,3 +1,7 @@
+html {
+     font-size: 16px;
+}
+
 div.box {
      font-size: 1rem;
      -moz-border-radius: 6px;
@@ -11,6 +15,7 @@ div.box {
      margin: 10px 0;
 }
 
+.post p:first-child,
 .box p,
 .box p:first-child {
      font-size: 1rem;
@@ -38,4 +43,8 @@ div.box-tip {
      background-color: #FFFBEA;
      background-image: url(../Images/icons/Lightbulb-48.png);
      border: solid 1px #F1C40F;
+}
+
+code {
+     font-size: 1rem;
 }
