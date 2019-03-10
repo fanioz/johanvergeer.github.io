@@ -34,7 +34,7 @@ steps:
 
       $workingDir = "$(System.DefaultWorkingDirectory)\master"
 
-      git clone https://${env:githubusername}:$(githubaccesstoken)@github.com/${env:githubusername}/${env:repositoryname}.git --branch=master $workingDir --quiet
+      git clone https://${env:GITHUB_USERNAME}:$(env:GITHUB_ACCESS_TOKEN)@github.com/${env:GITHUB_USERNAME}/${env:REPOSITORY_NAME}.git --branch=master $workingDir --quiet
 
       if ($lastexitcode -gt 0)
       {
@@ -48,16 +48,16 @@ steps:
 
       Write-Host "Copying new documentation into branch"
 
-      Copy-Item ${env:docPath}\* $workingDir -recurse -Force
+      Copy-Item ${env:DOC_PATH}\* $workingDir -recurse -Force
 
       Write-Host "Committing the GitHub Pages Branch"
 
       Set-Location $workingDir
       git config core.autocrlf false
-      git config user.email ${env:githubemail}
-      git config user.name ${env:githubusername}
+      git config user.email ${env:GITHUB_EMAIL}
+      git config user.name ${env:GITHUB_USERNAME}
       git add *
-      git commit -m ${env:commitMessage}
+      git commit -m ${env:COMMIT_MESSAGE}
 
       if ($lastexitcode -gt 0)
       {
