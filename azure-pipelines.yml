@@ -24,10 +24,10 @@ trigger:
 
 
 steps:
-  # - task: cake-build.cake.cake-build-task.Cake@0
-  #   displayName: "Build Wyam site"
-  #   inputs:
-  #     target: Build
+  - task: cake-build.cake.cake-build-task.Cake@0
+    displayName: "Build Wyam site"
+    inputs:
+      target: Build
 
   - powershell: |
       Write-Host "Cloning existing GitHub Pages branch"
