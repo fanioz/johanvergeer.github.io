@@ -16,7 +16,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>My Blog - Travis CI setup for Wyam</title>
+  <title>My Blog - Creating styled boxes for a Wyam site</title>
   <meta name="description" content="Welcome!" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">    
 
@@ -40,9 +40,9 @@
   <meta name="msapplication-tooltip" content="My Blog" />
   <meta name="msapplication-starturl" content="/" />
 
-  <meta property="og:title" content="My Blog - Travis CI setup for Wyam" />
+  <meta property="og:title" content="My Blog - Creating styled boxes for a Wyam site" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="http://host.com/posts/travis-ci-wyam" />
+  <meta property="og:url" content="http://host.com/posts/creating-styled-boxes" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -75,37 +75,111 @@
         <figure class="absolute-bg mast__img" style="background-image: url('/assets/images/background.jpg');"></figure>
         <div class="mast__container">
             <span>
-                Created on <time datetime="YYYY-03-DD">Saturday, March 9, 2019</time>
+                Created on <time datetime="YYYY-03-DD">Monday, March 11, 2019</time>
                     <span>by Johan Vergeer</span>
             </span>
-            <h1>Travis CI setup for Wyam</h1>   
+            <h1>Creating styled boxes for a Wyam site</h1>   
                             <span>
 Tags: 
                             <a class="nav--white" href="/tags/C%23">C#</a>
-,                            <a class="nav--white" href="/tags/Continuous-Integration">Continuous Integration</a>
-,                            <a class="nav--white" href="/tags/GitHub">GitHub</a>
+,                            <a class="nav--white" href="/tags/CSS">CSS</a>
 ,                            <a class="nav--white" href="/tags/Wyam">Wyam</a>
                 </span>
         </div>
     </header>
     <section class="section-padding bg-grey">
         <div class="post">
-            <p>To publish your Wyam site on GitHub Pages it can be useful to use Travis CI to do your builds fully automatically.</p>
-<p>First of all, you should create an account at <a href="https://travis-ci.com">travis-ci.com</a> and link your GitHub account.</p>
-<p><a href="http://cakebuild.net/docs/tutorials/setting-up-a-new-project">http://cakebuild.net/docs/tutorials/setting-up-a-new-project</a></p>
+            <p>Sometimes you want to indicate a piece of information is more important then the rest. To do this you can create styled boxes with CSS. I used an example from <a href="https://www.madcapsoftware.com/blog/2017/08/17/css-tip-creating-styled-boxes-notes-warnings-examples-tips/">madcapsoftware.com</a> and applied it to Wyam.</p>
+<p>I did not create a NuGet package for this functionality (yet). But it is fairly simple to create the boxes yourself.</p>
+<p>The boxes we'll create are:</p>
+<div class='box box-note'>
+<p>Note</p>
+</div>
+<div class='box box-warning'>
+<p>Warning</p>
+</div>
+<div class='box box-example'>
+<p>Example</p>
+</div>
+<div class='box box-tip'>
+<p>Tip</p>
+</div>
+<h1 id="create-css">Create CSS</h1>
+<p>The CSS is to as hard as it might seem. The first part is the general box class.
+As you can see, you'll need to create a <code>div</code> element with a <code>box</code> class.</p>
+<pre><code class="language-css">div.box {
+     font-size: 1rem;
+     -moz-border-radius: 6px;
+     -webkit-border-radius: 6px;
+     background-position: 9px 0px;
+     background-repeat: no-repeat;
+     border-radius: 6px;
+     line-height: 18px;
+     overflow: hidden;
+     padding: 15px 60px;
+     margin: 10px 0;
+}
+</code></pre>
+<p>This will get you a box, but not the desired colors. For this we'll create four more css classes:</p>
+<pre><code class="language-css">div.box-note {
+     background-color: #f0f7fb;
+     background-image: url(../Images/icons/Pencil-48.png);
+     border: solid 1px #3498db;
+}
+
+div.box-warning {
+     background-color: #FCF7F2;
+     background-image: url(../Images/icons/Warning-48.png);
+     border: solid 1px #E64636;
+}
+
+div.box-example {
+     background-color: #E7F6F0;
+     background-image: url(../Images/icons/Check-48.png);
+     border: solid 1px #2BCB6F;
+}
+
+div.box-tip {
+     background-color: #FFFBEA;
+     background-image: url(../Images/icons/Lightbulb-48.png);
+     border: solid 1px #F1C40F;
+}
+</code></pre>
+<p>Each class defines a <code>background-color</code>, a <code>color</code> and a <code>background-image</code>.</p>
+<h1 id="create-wyam-shortcodes">Create Wyam Shortcodes</h1>
+<p>We can create some shortcodes in <code>config.wyam</code>. These shortcodes are all it takes to create the styled boxes.</p>
+<pre><code class="language-csharp">ShortcodeCollection.Add(&quot;Note&quot;, (string x) =&gt; $&quot;&lt;div class='box box-note'&gt;{x}&lt;/div&gt;&quot;);
+
+ShortcodeCollection.Add(&quot;Warning&quot;, (string x) =&gt; $&quot;&lt;div class='box box-warning'&gt;{x}&lt;/div&gt;&quot;);
+
+ShortcodeCollection.Add(&quot;Example&quot;, (string x) =&gt; $&quot;&lt;div class='box box-example'&gt;{x}&lt;/div&gt;&quot;);
+
+ShortcodeCollection.Add(&quot;Tip&quot;, (string x) =&gt; $&quot;&lt;div class='box box-tip'&gt;{x}&lt;/div&gt;&quot;);
+</code></pre>
+<h1 id="use-the-shortcodes">Use the Shortcodes</h1>
+<p>After defining the shortcodes in <code>config.wyam</code>, you can use them. The code I used to create the boxes above is this:</p>
+<pre><code class="language-markdown">&lt;?# Note ?&gt;
+Note
+&lt;?#/ Note ?&gt;
+
+&lt;?# Warning ?&gt;
+Warning
+&lt;?#/ Warning ?&gt;
+
+&lt;?# Example ?&gt;
+Example
+&lt;?#/ Example ?&gt;
+
+&lt;?# Tip ?&gt;
+Tip
+&lt;?#/ Tip ?&gt;
+</code></pre>
+<p>That's all, folks.</p>
  
         </div>          
     </section>
 </article>
 
-    <section class="next">
-        <a class="next__link" href="/posts/wyam-azure-devops" style="background-image: url('/assets/images/background.jpg');">
-            <div class="next__container">
-                <span>Read Next</span>
-                <h2>Wyam, Azure DevOps and GitHub Pages</h2>
-            </div> 
-        </a>
-    </section>
 
 <footer class="section-padding--sm footer">
   <span>
@@ -126,7 +200,8 @@ Tags:
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
 <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
 <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/cs.min.js"></script>
-<!-- <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/plaintext.min.js"></script> -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/css.min.js"></script>
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/markdown.min.js"></script>
 <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/powershell.min.js"></script>
 <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script> 
