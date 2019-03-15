@@ -26,7 +26,7 @@ steps:
   - task: cake-build.cake.cake-build-task.Cake@0
     displayName: "Build Wyam site"
     inputs:
-      target: Build
+      target: PushMasterBranch
 
   # - powershell: |
   #     Write-Host "Cloning existing GitHub Pages branch"
