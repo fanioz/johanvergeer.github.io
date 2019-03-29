@@ -21,7 +21,7 @@
     <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
         <div class="container">
             <div class="navbar-translate">
-                <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">
+                <a class="navbar-brand" href="/">
                     Johan Vergeer
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,37 +33,61 @@
             </div>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li class="dropdown nav-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <i class="material-icons">apps</i> Components
+                @{
+                    List<Tuple<string, string>> pages = Context
+                        .Documents[Blog.Pages]
+                        .Where(x => x.Bool(BlogKeys.ShowInNavbar, true))
+                        .Where(x => x.FilePath(Keys.RelativeFilePath)?.FullPath?.StartsWith("index") == (bool?)false)
+                        .Select(x => Tuple.Create(x.WithoutSettings.String(Keys.Title), Context.GetLink(x)))
+                        .Where(x => !string.IsNullOrEmpty(x.Item1))
+                        .OrderBy(x => x.Item1)
+                        .ToList();
+                        
+                    if(Documents[Blog.Tags].Any())
+                    {
+                        var tagsLink = Context.GetLink("tags/index.html");
+                        <li class="nav-item">
+                            <a class="nav-link" href="@(tagsLink)">
+                                <i class="fa fa-tags"></i>
+                                Tags
+                            </a>
+                        </li>
+                    }
+
+                    if(Documents[Blog.BlogPosts].Any() && Context.Bool(BlogKeys.GenerateArchive))
+                    {
+                        var archiveLink = Context.GetLink(Context.String(BlogKeys.PostsPath)) + "/index.html";
+                        <li class="nav-item">
+                            <a class="nav-link" href="@(archiveLink)">
+                                <i class="fa fa-archive"></i>
+                                Archive
+                            </a>
+                        </li>
+                    }
+                
+                    foreach(Tuple<string, string> page in pages)
+                    {   
+                        var FontAwesome = Context.Documents[Blog.Pages]
+                                .Where(x => Context.GetLink(x) == page.Item2)
+                                .Select(x => x.Get<string>("FontAwesome"))
+                                .FirstOrDefault() ?? "angle-double-right";
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="@(page.Item2)">
+                                <i class="fa fa-@(FontAwesome)"></i>
+                                @(page.Item1)
+                            </a>
+                        </li>
+                    }
+                }
+                <li class="nav-item">
+                    <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://github.com/johanvergeer" target="_blank" data-original-title="Follow me on GitHub">
+                        <i class="fa fa-github"></i>
                     </a>
-                    <div class="dropdown-menu dropdown-with-icons">
-                        <a href="../index.html" class="dropdown-item">
-                            <i class="material-icons">layers</i> All Components
-                        </a>
-                        <a href="https://demos.creative-tim.com/material-kit/docs/2.1/getting-started/introduction.html" class="dropdown-item">
-                            <i class="material-icons">content_paste</i> Documentation
-                        </a>
-                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
-                        <i class="material-icons">cloud_download</i> Download
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank" data-original-title="Follow us on Twitter">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" data-original-title="Like us on Facebook">
-                        <i class="fa fa-facebook-square"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank" data-original-title="Follow us on Instagram">
-                        <i class="fa fa-instagram"></i>
+                    <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.linkedin.com/in/johanvergeer" target="_blank" data-original-title="Join my network on LinkedIn">
+                        <i class="fa fa-linkedin"></i>
                     </a>
                 </li>
             </ul>
@@ -82,47 +106,6 @@
     </div>
     <div class="main main-raised">
         <div class="container">
-            @if(Context.String(BlogKeys.Description) != null)
-            {
-                <a href="@Context.GetLink("/")"><h1>@Context.String(BlogKeys.Description)</h1> </a>
-            }
-            @if(Context.String(BlogKeys.Intro) != null)
-            {            
-                @if(Context.String(BlogKeys.Description) != null)
-                {
-                    <hr>
-                }
-                <span>@Context.String(BlogKeys.Intro)</span>
-            }
-
-            @{
-                List<Tuple<string, string>> pages = Context
-                    .Documents[Blog.Pages]
-                    .Where(x => x.Bool(BlogKeys.ShowInNavbar, true))
-                    .Where(x => x.FilePath(Keys.RelativeFilePath)?.FullPath?.StartsWith("index") == (bool?)false)
-                    .Select(x => Tuple.Create(x.WithoutSettings.String(Keys.Title), Context.GetLink(x)))
-                    .Where(x => !string.IsNullOrEmpty(x.Item1))
-                    .OrderBy(x => x.Item1)
-                    .ToList();
-                    
-                    if(Documents[Blog.Tags].Any())
-                    {
-                        pages.Insert(0, Tuple.Create("Tags", Context.GetLink("tags/index.html")));
-                    }
-
-                    if(Documents[Blog.BlogPosts].Any() && Context.Bool(BlogKeys.GenerateArchive))
-                    {
-                        pages.Insert(0, Tuple.Create("Archive", Context.GetLink(Context.String(BlogKeys.PostsPath) + "/index.html")));
-                    }
-                
-                    foreach(Tuple<string, string> page in pages)
-                    {
-                        <li>
-                            <a href="@(page.Item2)">@(page.Item1)</a>
-                        </li>
-                    }
-            }
-
             @RenderBody()
         </div>
     </div>
