@@ -1,7 +1,7 @@
 ---
 Title: Wyam, Azure DevOps and GitHub Pages
 Published: 3/16/2019
-Tags: [C#, Wyam, Continuous Integration, GitHub Pages, Azure DevOps]
+Tags: [Csharp, Wyam, Continuous Integration, GitHub Pages, Azure DevOps]
 author: Johan Vergeer
 ---
 Publishing a static site with a static content generator can be fully automated. In this case I'm using [Wyam](https://wyam.io/), a static site generator, [GitHub Pages](https://pages.github.com/) for hosting and [Azure DevOps](https://azure.microsoft.com/en-us/solutions/devops/) for build and deployment. Of course there are a ton of other ways to do this, but right now I'll show you the way that I chose to use.

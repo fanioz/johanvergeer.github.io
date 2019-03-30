@@ -1,7 +1,7 @@
 ---
 Title: Creating styled boxes for a Wyam site
 Published: 3/11/2019
-Tags: [C#, Wyam, CSS]
+Tags: [Csharp, Wyam, CSS]
 author: Johan Vergeer
 ---
 Sometimes you want to indicate a piece of information is more important then the rest. To do this you can create styled boxes with CSS. I used an example from [madcapsoftware.com](https://www.madcapsoftware.com/blog/2017/08/17/css-tip-creating-styled-boxes-notes-warnings-examples-tips/) and applied it to Wyam.

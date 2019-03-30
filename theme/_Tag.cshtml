@@ -1,0 +1,18 @@
+@{ 
+    var postPages = Model.DocumentList(Keys.PageDocuments).OrderByDescending(x => x.Get<DateTime>(BlogKeys.Published));
+    string tagName = Model.String(BlogKeys.Tag);
+    string tag = tagName.ToLowerInvariant().Replace(' ', '-');
+    tag = tag.StartsWith(".") ? tag.Substring(1) : tag; 
+}
+
+<div class="title mb-5">
+    <h1>Posts for @tagName</h1>
+</div>
+
+
+@foreach(var post in postPages){
+    @Html.Partial("_PostPartial", post)
+}
+
+
+<a href="@Context.GetLink(Context.String(BlogKeys.PostsPath))">Back To posts</a>
