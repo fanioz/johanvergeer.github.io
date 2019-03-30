@@ -10,7 +10,7 @@
     </div>
     <div class="card-body">
             @Html.Raw(Model.String(BlogKeys.Excerpt))
-        <a href="@Context.GetLink(Model)">Keep reading</a>  
+        <a href="@Context.GetLink(Model)">Keep reading <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>  
     </div>
     <div class="card-footer">
     <span class="mr-3"><i class="fa fa-user"></i> @Model.String("Author")</span>
