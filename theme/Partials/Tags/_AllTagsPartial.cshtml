@@ -2,5 +2,5 @@
     .GroupBy(x => x.String(BlogKeys.Tag)).Select(x => x.Where(p => p.Get<int>(Keys.CurrentPage) == 1).First())
     .OrderByDescending(x => x.Get<int>(Keys.TotalItems)))
 { 
-    @Html.Partial("_TagAsPillPartial", tagDocument)
+    @Html.Partial("Partials/Tags/_TagWithCountAsPillPartial", tagDocument)
 }

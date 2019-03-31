@@ -1,0 +1,11 @@
+@model IDocument
+
+@{
+    string tagName = Model.String(BlogKeys.Tag);
+    var firstTagDoc = Model.DocumentList(Keys.PageDocuments).FirstOrDefault();
+}
+
+
+<a href="@Context.GetLink(Model)" class="badge badge-pill badge-lg badge-primary">
+    @tagName
+</a>

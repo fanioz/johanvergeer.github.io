@@ -2,6 +2,7 @@
 
 @{
     var published = Model.DateTime(BlogKeys.Published);
+    var tags = Model.WithoutSettings.Get<IEnumerable<string>>(BlogKeys.Tags);
 }
 
 <div class="card mb-5">
@@ -13,7 +14,13 @@
         <a href="@Context.GetLink(Model)">Keep reading <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>  
     </div>
     <div class="card-footer">
-    <span class="mr-3"><i class="fa fa-user"></i> @Model.String("Author")</span>
-    <span><i class="fa fa-calendar"></i> <time datetime="@published.ToString("YYYY-MM-DD")">@(published.ToLongDateString(Context))</time></span> 
+        <div>
+            <span class="mr-3"><i class="fa fa-user"></i> @Model.String("Author")</span>
+            <span><i class="fa fa-calendar"></i> <time datetime="@published.ToString("YYYY-MM-DD")">@(published.ToLongDateString(Context))</time></span>
+        </div>
+        <div>
+            @Html.Partial("Partials/Tags/_AllTagsForPostPartial")
+        </div>
+ 
     </div>
 </div>
