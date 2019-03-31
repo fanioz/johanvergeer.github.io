@@ -6,7 +6,7 @@
 
         @foreach(IDocument post in Model.DocumentList(Keys.PageDocuments))
         {
-            @Html.Partial("_PostPartial", post)
+            @Html.Partial("Partials/Posts/_PostPartial", post)
         }
     </div>
 
