@@ -36,7 +36,7 @@ Pipelines.Insert(
 
 class GlossaryItem {
 	public string Name { get; set; }
-	public IEnumerable<string> Authors { get; set; }
+	public IEnumerable<string> Authors { get; set; } = new List<string>();
 	public string WebPageName { get; set; }
 	public string WebsiteName { get; set; }
 	public int Year { get; set; }
@@ -69,9 +69,26 @@ using(var glossaryInput = new StreamReader("input/glossary.yml"))
 		// Deserialize the document
 		var glossaryItem = deserializer.Deserialize<GlossaryItem>(parser);
 		glossary.Add(glossaryItem.Name, glossaryItem);
-		System.Console.WriteLine(glossaryItem.Name);
 	}
 }
+
+ShortcodeCollection.Add("Glossary", (string name) => {
+	try
+	{
+		var item = glossary[name];
+		return $"[{string.Join(", ", item.Authors)}, {item.Year}]";
+	}
+	catch 
+	{
+		Wyam.Common.Tracing.Trace.Warning($"No glossary item found with name {name}");
+		return $"[{name} NOT FOUND]" ;
+	}
+});
+
+ShortcodeCollection.Add("Note", (string x) => $"<div class='box box-note'>{x}</div>");
+ShortcodeCollection.Add("Warning", (string x) => $"<div class='box box-warning'>{x}</div>");
+ShortcodeCollection.Add("Example", (string x) => $"<div class='box box-example'>{x}</div>");
+ShortcodeCollection.Add("Tip", (string x) => $"<div class='box box-tip'>{x}</div>");
 
 // var replace = new Replace("MyFoo", "YourBar");
 // var include = new Include();
@@ -117,10 +134,3 @@ using(var glossaryInput = new StreamReader("input/glossary.yml"))
 // 		}
 // 	)
 // );
-
-
-
-ShortcodeCollection.Add("Note", (string x) => $"<div class='box box-note'>{x}</div>");
-ShortcodeCollection.Add("Warning", (string x) => $"<div class='box box-warning'>{x}</div>");
-ShortcodeCollection.Add("Example", (string x) => $"<div class='box box-example'>{x}</div>");
-ShortcodeCollection.Add("Tip", (string x) => $"<div class='box box-tip'>{x}</div>");
