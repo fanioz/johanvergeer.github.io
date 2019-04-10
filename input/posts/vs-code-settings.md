@@ -17,3 +17,14 @@ To configure this, just add the following to the main object in `settings.json`:
 "files.autoSave": "afterDelay"
 ```
 
+# Associate language with file extensions
+
+As you can read in the [VS Code documentation](https://code.visualstudio.com/docs/languages/overview#_adding-a-file-extension-to-a-language), you can set a language for each file extension. 
+
+In my example, I would like to add the `.wyam` file extension to `C#`.
+
+```json
+"files.associations": {
+    "*.wyam": "csharp"
+},
+```
