@@ -126,6 +126,13 @@
 <p>To configure this, just add the following to the main object in <code>settings.json</code>:</p>
 <pre><code class="language-json">&quot;files.autoSave&quot;: &quot;afterDelay&quot;
 </code></pre>
+<h1 id="associate-language-with-file-extensions">Associate language with file extensions</h1>
+<p>As you can read in the <a href="https://code.visualstudio.com/docs/languages/overview#_adding-a-file-extension-to-a-language">VS Code documentation</a>, you can set a language for each file extension.</p>
+<p>In my example, I would like to add the <code>.wyam</code> file extension to <code>C#</code>.</p>
+<pre><code class="language-json">&quot;files.associations&quot;: {
+    &quot;*.wyam&quot;: &quot;csharp&quot;
+},
+</code></pre>
 
 
 <div id="disqus_thread"></div>
