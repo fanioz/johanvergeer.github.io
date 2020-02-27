@@ -19,5 +19,5 @@ steps:
     inputs:
       target: Deploy
     env:
-      GITHUB_ACCESS_TOKEN: $(githubAccessToken)
-      GITHUB_USERNAME: "johanvergeer"
+      GITHUB_ACCESS_TOKEN: $(GITHUB_ACCESS_TOKEN)
+      GITHUB_USERNAME: "fanioz"
