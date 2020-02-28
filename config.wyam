@@ -5,9 +5,9 @@
 #n Wyam.SearchIndex
 
 // Customize your settings and add new ones here
-Settings[Keys.Host] = "johanvergeer.github.io";
-Settings[Keys.DateTimeInputCulture] = "nl-NL";
-Settings[BlogKeys.Title] = "I'm Johan";
+Settings[Keys.Host] = "fanioz.github.io";
+Settings[Keys.DateTimeInputCulture] = "id-ID";
+Settings[BlogKeys.Title] = "Fanioz Blog";
 Settings[BlogKeys.Description] = "Welcome!";
 
 int renderPagesIndex = Pipelines.IndexOf(Blog.RenderPages);

@@ -5,7 +5,7 @@
 
 var target = Argument("target", "Default");
 
-var repositoryUrl = "https://github.com/johanvergeer/johanvergeer.github.io.git";
+var repositoryUrl = "https://github.com/fanioz/fanioz.github.io.git";
 var githubUserName = EnvironmentVariable("GITHUB_USERNAME");
 var githubAccessToken = EnvironmentVariable("GITHUB_ACCESS_TOKEN");
 
@@ -124,7 +124,7 @@ Task("CommitMasterBranch")
         Information("Performing Git commit on master branch");
 
         GitAddAll(tempDir);
-        GitCommit(tempDir, "Johan Vergeer", "johanvergeer@gmail.com", $"Automated release {gitVersion.InformationalVersion}");
+        GitCommit(tempDir, "Fanioz", "fanio.zilla@gmail.com", $"Automated release {gitVersion.InformationalVersion}");
     });
 
 Task("PushMasterBranch")
