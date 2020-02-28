@@ -18,7 +18,7 @@ steps:
     displayName: "Build and publish Wyam site"
     inputs:
       target: Deploy
-      Configuration: Diagnostic
+      verbosity: Diagnostic
     env:
       GITHUB_ACCESS_TOKEN: $(GITHUB_ACCESS_TOKEN)
       GITHUB_USERNAME: "fanioz"
