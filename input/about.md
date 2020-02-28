@@ -3,4 +3,4 @@ Title: About Me
 FontAwesome: user
 Layout: _About
 ---
-I'm awesome!
+I'm not that awesome!
