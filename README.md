@@ -1,4 +1,4 @@
-[![Build Status](https://johanvergeer.visualstudio.com/johanvergeer.github.io/_apis/build/status/johanvergeer.johanvergeer.github.io?branchName=source)](https://johanvergeer.visualstudio.com/johanvergeer.github.io/_build/latest?definitionId=5&branchName=source)
+[![Build Status](https://dev.azure.com/fanioz/fanioz-blog/_apis/build/status/fanioz.fanioz.github.io?branchName=source)](https://dev.azure.com/fanioz/fanioz-blog/_build/latest?definitionId=14&branchName=source)
 
 # Page metadata
 
