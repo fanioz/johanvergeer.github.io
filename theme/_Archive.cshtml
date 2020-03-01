@@ -21,9 +21,9 @@
 </div>
 
 @if(Model.Bool(Keys.HasPreviousPage)) {
-    <a href="@(Context.GetLink(Model.Document(Keys.PreviousPage)))"><span aria-hidden="true">&larr;</span> Newer</a> 
+    <a href="@(Context.GetLink(Model.Document(Keys.PreviousPage)))"><span aria-hidden="true">&larr;</span> Lebih baru</a> 
 } 
 
 @if(Model.Bool(Keys.HasNextPage)) {
-    <a href="@(Context.GetLink(Model.Document(Keys.NextPage)))">Older <span aria-hidden="true">&rarr;</span></a> 
+    <a href="@(Context.GetLink(Model.Document(Keys.NextPage)))">Lebih Lama <span aria-hidden="true">&rarr;</span></a> 
 }
