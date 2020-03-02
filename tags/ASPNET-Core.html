@@ -2,8 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         ASP.NET Core
@@ -32,8 +34,8 @@
         <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
         <div class="container">
             <div class="navbar-translate">
-                <a class="navbar-brand" href="/">
-                    I'm Johan
+                <a class="navbar-brand" href="/"><i class="fas fa-home"></i>
+                    Beranda
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>
@@ -56,19 +58,13 @@
                                 About Me
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/kudos">
-                                <i class="fa fa-gift"></i>
-                                Kudos
-                            </a>
-                        </li>
                 <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://github.com/johanvergeer" target="_blank" data-original-title="Follow me on GitHub">
+                    <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://github.com/fanioz" target="_blank" data-original-title="Lihat Profil GitHub">
                         <i class="fab fa-github fa-2x"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.linkedin.com/in/johanvergeer" target="_blank" data-original-title="Join my network on">
+                    <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.linkedin.com/in/fanioz" target="_blank" data-original-title="Lihat Profil LinkedIn">
                         <i class="fab fa-linkedin fa-2x"></i>
                     </a>
                 </li>
@@ -78,7 +74,7 @@
     </nav>
 
     <div class="page-header header-filter" 
-    style='background-image: url("../assets/img/city-profile.jpg"); transform: translate3d(0px, 0px, 0px);' 
+    style='background-image: url("../assets/img/pompa-angguk.jpg"); transform: translate3d(0px, 0px, 0px); background-position: center;  background-size: cover' 
     data-parallax="true">
 </div>
 
@@ -87,7 +83,7 @@
         <div class="container">
               
 <div class="title mb-5">
-    <h1>Posts for ASP.NET Core</h1>
+    <h1>Tulisan dengan topik ASP.NET Core</h1>
 </div>
 
 
@@ -99,7 +95,7 @@
     </div>
     <div class="card-body">
             <p>ASP.NET Core API Controllers are just classes, which means they can be unit tested.</p>
-        <a href="/posts/asp-net-core-api-unit-tests">Keep reading <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>  
+        <a href="/posts/asp-net-core-api-unit-tests">Lebih lanjut <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>  
     </div>
     <div class="card-footer">
         <div class="container-fluid">
@@ -143,11 +139,54 @@
 
 <div class="card mb-5">
     <div class="card-header card-header-primary">
+        ASP.NET Core seeding the database
+    </div>
+    <div class="card-body">
+            <p>It can be useful to seed the database with initial data. In this post we'll take a look at one way of achieving this.</p>
+        <a href="/posts/asp-net-core-seeding-databse">Lebih lanjut <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>  
+    </div>
+    <div class="card-footer">
+        <div class="container-fluid">
+            <div class="d-flex flex-row-reverse">
+                <div class="p-1">
+                    
+
+<span class="mr-3"><i class="fa fa-user"></i> Johan Vergeer</span>
+<span><i class="fa fa-calendar"></i> <time datetime="YYYY-03-DD">Sunday, March 31, 2019</time></span>
+                </div>
+            </div>
+            <div class="d-flex flex-row-reverse">
+                <div class="p-1">
+                    
+
+<i class="fas fa-tags"></i> 
+
+
+
+<a href="/tags/Csharp" class="badge badge-pill badge-lg badge-primary">
+    Csharp
+</a>
+
+
+<a href="/tags/ASPNET-Core" class="badge badge-pill badge-lg badge-primary">
+    ASP.NET Core
+</a>  
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="card mb-5">
+    <div class="card-header card-header-primary">
         ASP.NET Core integration tests
     </div>
     <div class="card-body">
             <p>Integration tests ensure that an app's components function correctly at a level that includes the app's supporting infrastructure, such as the database, file system, and network. ASP.NET Core supports integration tests using a unit test framework with a test web host and an in-memory test server.<a id="fnref:1" href="#fn:1" class="footnote-ref"><sup>1</sup></a></p>
-        <a href="/posts/asp-net-core-integration-tests">Keep reading <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>  
+        <a href="/posts/asp-net-core-integration-tests">Lebih lanjut <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>  
     </div>
     <div class="card-footer">
         <div class="container-fluid">
@@ -189,50 +228,7 @@
 
 
 
-<div class="card mb-5">
-    <div class="card-header card-header-primary">
-        ASP.NET Core seeding the database
-    </div>
-    <div class="card-body">
-            <p>It can be useful to seed the database with initial data. In this post we'll take a look at one way of achieving this.</p>
-        <a href="/posts/asp-net-core-seeding-databse">Keep reading <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>  
-    </div>
-    <div class="card-footer">
-        <div class="container-fluid">
-            <div class="d-flex flex-row-reverse">
-                <div class="p-1">
-                    
-
-<span class="mr-3"><i class="fa fa-user"></i> Johan Vergeer</span>
-<span><i class="fa fa-calendar"></i> <time datetime="YYYY-03-DD">Sunday, March 31, 2019</time></span>
-                </div>
-            </div>
-            <div class="d-flex flex-row-reverse">
-                <div class="p-1">
-                    
-
-<i class="fas fa-tags"></i> 
-
-
-
-<a href="/tags/Csharp" class="badge badge-pill badge-lg badge-primary">
-    Csharp
-</a>
-
-
-<a href="/tags/ASPNET-Core" class="badge badge-pill badge-lg badge-primary">
-    ASP.NET Core
-</a>  
-                </div> 
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-<a href="/posts">Back To posts</a>
+<a href="/posts">Kembali ke indeks</a>
         </div>
     </div>
 </div>
@@ -242,9 +238,7 @@
       <nav class="float-left">
         <ul>
           <li>
-            <a href="/">
-              I'm Johan
-            </a>
+              
           </li>
         </ul>
       </nav>
@@ -252,8 +246,8 @@
         ©
         <script>
           document.write(new Date().getFullYear())
-        </script>, made with <i class="material-icons">favorite</i> by
-        <a href="https://johanvergeer.github.io" target="_blank">Johan Vergeer</a>.
+        </script>, dibuat dengan <a href="https://wyam.io/" target="="_blank ><i class="material-icons">favorite</i></a> oleh
+        <a href="https://fanioz.github.io" target="_blank">fanioz</a>.
       </div>
     </div>
   </footer>
