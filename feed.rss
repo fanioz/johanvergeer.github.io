@@ -5,8 +5,8 @@
 		<link>http://fanioz.github.io/</link>
 		<description>Welcome!</description>
 		<copyright>2020</copyright>
-		<pubDate>Mon, 02 Mar 2020 14:24:10 GMT</pubDate>
-		<lastBuildDate>Mon, 02 Mar 2020 14:24:10 GMT</lastBuildDate>
+		<pubDate>Tue, 03 Mar 2020 02:30:24 GMT</pubDate>
+		<lastBuildDate>Tue, 03 Mar 2020 02:30:24 GMT</lastBuildDate>
 		<item>
 			<title>Vue Components</title>
 			<link>http://fanioz.github.io/posts/vue-components</link>
@@ -614,28 +614,6 @@ Here we pass the &lt;code&gt;context&lt;/code&gt; and the &lt;code&gt;IServicePr
 </content:encoded>
 		</item>
 		<item>
-			<title>VS Code Settings</title>
-			<link>http://fanioz.github.io/posts/vs-code-settings</link>
-			<description>&lt;p&gt;VS Code is very configurable. In this post I'll share the configuration I like to use.&lt;/p&gt;</description>
-			<author>Johan Vergeer</author>
-			<guid>http://fanioz.github.io/posts/vs-code-settings</guid>
-			<pubDate>Sun, 24 Mar 2019 00:00:00 GMT</pubDate>
-			<content:encoded>&lt;p&gt;VS Code is very configurable. In this post I'll share the configuration I like to use.&lt;/p&gt;
-&lt;h1 id="auto-save"&gt;Auto save&lt;/h1&gt;
-&lt;p&gt;Most of the time I like my IDE to save files automatically instead of having to save each and every file independently. I know, I can save all files, but that's still more work that letting the IDE do it.&lt;/p&gt;
-&lt;p&gt;To configure this, just add the following to the main object in &lt;code&gt;settings.json&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-json"&gt;&amp;quot;files.autoSave&amp;quot;: &amp;quot;afterDelay&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="associate-language-with-file-extensions"&gt;Associate language with file extensions&lt;/h1&gt;
-&lt;p&gt;As you can read in the &lt;a href="https://code.visualstudio.com/docs/languages/overview#_adding-a-file-extension-to-a-language"&gt;VS Code documentation&lt;/a&gt;, you can set a language for each file extension.&lt;/p&gt;
-&lt;p&gt;In my example, I would like to add the &lt;code&gt;.wyam&lt;/code&gt; file extension to &lt;code&gt;C#&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-json"&gt;&amp;quot;files.associations&amp;quot;: {
-    &amp;quot;*.wyam&amp;quot;: &amp;quot;csharp&amp;quot;
-},
-&lt;/code&gt;&lt;/pre&gt;
-</content:encoded>
-		</item>
-		<item>
 			<title>VS Code Extensions</title>
 			<link>http://fanioz.github.io/posts/vs-code-extensions</link>
 			<description>&lt;p&gt;One of the many great things about VS Code is it's extensibility, and the many extensions that are out there in the marketplace. This is a list of extensions I use and wanted to share with you.&lt;/p&gt;</description>
@@ -696,6 +674,28 @@ Just search for a snippet library for your language and install it.&lt;/p&gt;
 &lt;p&gt;XML Language Support by Red Hat&lt;/p&gt;
 &lt;h1 id="powershell"&gt;PowerShell&lt;/h1&gt;
 &lt;p&gt;Develop PowerShell scripts in Visual Studio Code!&lt;/p&gt;
+</content:encoded>
+		</item>
+		<item>
+			<title>VS Code Settings</title>
+			<link>http://fanioz.github.io/posts/vs-code-settings</link>
+			<description>&lt;p&gt;VS Code is very configurable. In this post I'll share the configuration I like to use.&lt;/p&gt;</description>
+			<author>Johan Vergeer</author>
+			<guid>http://fanioz.github.io/posts/vs-code-settings</guid>
+			<pubDate>Sun, 24 Mar 2019 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;p&gt;VS Code is very configurable. In this post I'll share the configuration I like to use.&lt;/p&gt;
+&lt;h1 id="auto-save"&gt;Auto save&lt;/h1&gt;
+&lt;p&gt;Most of the time I like my IDE to save files automatically instead of having to save each and every file independently. I know, I can save all files, but that's still more work that letting the IDE do it.&lt;/p&gt;
+&lt;p&gt;To configure this, just add the following to the main object in &lt;code&gt;settings.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-json"&gt;&amp;quot;files.autoSave&amp;quot;: &amp;quot;afterDelay&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="associate-language-with-file-extensions"&gt;Associate language with file extensions&lt;/h1&gt;
+&lt;p&gt;As you can read in the &lt;a href="https://code.visualstudio.com/docs/languages/overview#_adding-a-file-extension-to-a-language"&gt;VS Code documentation&lt;/a&gt;, you can set a language for each file extension.&lt;/p&gt;
+&lt;p&gt;In my example, I would like to add the &lt;code&gt;.wyam&lt;/code&gt; file extension to &lt;code&gt;C#&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-json"&gt;&amp;quot;files.associations&amp;quot;: {
+    &amp;quot;*.wyam&amp;quot;: &amp;quot;csharp&amp;quot;
+},
+&lt;/code&gt;&lt;/pre&gt;
 </content:encoded>
 		</item>
 		<item>
